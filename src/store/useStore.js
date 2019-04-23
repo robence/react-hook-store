@@ -1,11 +1,20 @@
 import React, { createContext, useReducer, useContext } from "react"
 
-const initialState = {}
+import { countInitialState, countActions } from "./countActions";
+import { userInitialState, userActions } from "./userActions";
+
+const initialState = {
+  ...countInitialState,
+  ...userInitialState
+};
 
 const StoreContext = createContext(initialState);
 
 // this will act as a map of actions that will trigger state mutations
-const Actions = {};
+const Actions = {
+  ...userActions,
+  ...countActions
+};
 
 // the reducer is called whenever a dispatch action is made.
 // the action.type is a string which maps to a function in Actions.
