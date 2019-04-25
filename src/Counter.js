@@ -3,8 +3,10 @@ import { useStore } from './store/useStore';
 
 export default function () {
   const { state, dispatch } = useStore();
-  const inc = useCallback(() => dispatch({ type: 'increment'}), [dispatch]);
-  const dec = useCallback(() => dispatch({ type: 'decrement'}), [dispatch]);
+  // const inc = useCallback(() => dispatch({ type: 'increment'}), [dispatch]);
+  const inc = useCallback(() => dispatch({ type: 'INCREMENT'}), [dispatch]);
+  // const dec = useCallback(() => dispatch({ type: 'decrement'}), [dispatch]);
+  const dec = useCallback(() => dispatch({ type: 'DECREMENT'}), [dispatch]);
 
   return (
     <div>
