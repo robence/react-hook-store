@@ -1,12 +1,10 @@
-import React, { useCallback } from 'react';
-import { useStore } from './store/useStore';
+import React from "react";
+import { useStore } from "./store/useStore";
 
-export default function () {
+export default function() {
   const { state, dispatch } = useStore();
-  // const inc = useCallback(() => dispatch({ type: 'increment'}), [dispatch]);
-  const inc = useCallback(() => dispatch({ type: 'INCREMENT'}), [dispatch]);
-  // const dec = useCallback(() => dispatch({ type: 'decrement'}), [dispatch]);
-  const dec = useCallback(() => dispatch({ type: 'DECREMENT'}), [dispatch]);
+  const inc = () => dispatch({ type: "increment" });
+  const dec = () => dispatch({ type: "decrement" });
 
   return (
     <div>
