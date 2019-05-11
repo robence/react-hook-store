@@ -18,7 +18,9 @@
     "no-unexpected-multiline": "error",
     "quotes": [2, "single", "avoid-escape"],
     "ignoreTemplateLiterals": true,
-    "padded-blocks": ["error", "never"]
+    "padded-blocks": ["error", "never"],
+    "react/require-default-props": "off",
+    "react/prop-types": "off"
   },
   "plugins": ["react", "prettier"],
   "settings": {

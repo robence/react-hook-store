@@ -1,9 +1,11 @@
 import React, { createContext, useReducer, useContext } from 'react';
-import { counterReducer, userReducer } from './reducers';
+
+import { counterInitialState, counterReducer } from './counter';
+import { userInitialState, userReducer } from './user';
 
 const initialState = {
-  count: 10,
-  user: { isLoggedIn: false },
+  ...counterInitialState,
+  ...userInitialState,
 };
 
 const StoreContext = createContext(initialState);
@@ -21,7 +23,6 @@ const rootReducer = (state, action) => {
   return { ...state, ...update };
 };
 
-// eslint-disable-next-line react/prop-types
 export const StoreProvider = ({ children }) => {
   const [state, dispatch] = useReducer(rootReducer, initialState);
 
