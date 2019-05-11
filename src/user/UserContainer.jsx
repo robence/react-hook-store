@@ -7,10 +7,11 @@ import UserInput from './UserInput';
 import UserOutput from './UserOutput';
 
 export default function UserContainer() {
+  // Could also use
+  // const { state, dispatch } = useStore();
+
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const dispatch = useDispatch();
-
-  // const { state, dispatch } = useStore();
 
   const { login, logout } = boundUserActions(dispatch);
 

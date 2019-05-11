@@ -7,15 +7,18 @@ import CounterInput from './CounterInput';
 import CounterOutput from './CounterOutput';
 
 export default function CounterContainer() {
+  // Could also use
+  // const { state, dispatch } = useStore();
+
   const count = useSelector((state) => state.count);
   const dispatch = useDispatch();
 
-  const { increment, decrement } = boundCounterActions(dispatch);
+  const boundActionsCreators = boundCounterActions(dispatch);
 
   return (
     <div>
       <CounterOutput count={count} />
-      <CounterInput increment={increment} decrement={decrement} />
+      <CounterInput {...boundActionsCreators} />
     </div>
   );
 }
