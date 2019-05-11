@@ -37,3 +37,12 @@ export const useStore = () => {
   const { state, dispatch } = useContext(StoreContext);
   return { state, dispatch };
 };
+
+export const useSelector = (selector) => {
+  const { state } = useContext(StoreContext);
+  return selector(state);
+};
+
+export const useDispatch = () => {
+  return useContext(StoreContext).dispatch;
+};

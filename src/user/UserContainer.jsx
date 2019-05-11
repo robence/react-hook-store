@@ -1,22 +1,25 @@
 import React from 'react';
 
-import { useStore } from '../store/useStore';
+import { useDispatch, useSelector } from '../store/useStore';
 import { boundUserActions } from '../store/user';
 
 import UserInput from './UserInput';
 import UserOutput from './UserOutput';
 
 export default function UserContainer() {
-  const { state, dispatch } = useStore();
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+  const dispatch = useDispatch();
+
+  // const { state, dispatch } = useStore();
 
   const { login, logout } = boundUserActions(dispatch);
 
-  const handleClick = () => (state.user.isLoggedIn ? logout() : login());
+  const handleClick = () => (isLoggedIn ? logout() : login());
 
   return (
     <div>
-      <UserOutput isLoggedIn={state.user.isLoggedIn} />
-      <UserInput isLoggedIn={state.user.isLoggedIn} handleClick={handleClick} />
+      <UserOutput isLoggedIn={isLoggedIn} />
+      <UserInput isLoggedIn={isLoggedIn} handleClick={handleClick} />
     </div>
   );
 }
