@@ -1,15 +1,12 @@
 import React from 'react';
 
-import { useDispatch, useSelector } from '../store/useStore';
-import { boundUserActions } from '../store/user';
+import { useDispatch, useSelector } from '../../store2/hooks';
+import { boundUserActions } from '../../store2/actions';
 
 import UserInput from './UserInput';
 import UserOutput from './UserOutput';
 
 export default function UserContainer() {
-  // Could also use
-  // const { state, dispatch } = useStore();
-
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const dispatch = useDispatch();
 

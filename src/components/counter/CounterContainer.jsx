@@ -1,15 +1,12 @@
 import React from 'react';
 
-import { useSelector, useDispatch } from '../store/useStore';
-import { boundCounterActions } from '../store/counter';
+import { useSelector, useDispatch } from '../../store2/hooks';
+import { boundCounterActions } from '../../store2/actions';
 
 import CounterInput from './CounterInput';
 import CounterOutput from './CounterOutput';
 
 export default function CounterContainer() {
-  // Could also use
-  // const { state, dispatch } = useStore();
-
   const count = useSelector((state) => state.count);
   const dispatch = useDispatch();
 

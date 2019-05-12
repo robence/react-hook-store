@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { StoreProvider } from './store/useStore';
+import { StoreProvider } from './store2';
 import App from './App';
 
 function Main() {
