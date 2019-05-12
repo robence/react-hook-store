@@ -1,3 +1,5 @@
+// reducers are wildcard imported and put together inside store/index as rootReducer
+
 import { INCREMENT, DECREMENT, LOGIN, LOGOUT } from '../actions';
 
 export const counterReducer = (state, action) => {

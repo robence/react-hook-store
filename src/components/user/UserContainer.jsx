@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { useDispatch, useSelector } from '../../store2/hooks';
-import { boundUserActions } from '../../store2/actions';
+import { useDispatch, useSelector } from '../../my-store/hooks';
+import { login, logout } from '../../my-store/actions';
+import { bindActionCreators } from '../../my-store/utils';
 
 import UserInput from './UserInput';
 import UserOutput from './UserOutput';
@@ -10,9 +11,10 @@ export default function UserContainer() {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const dispatch = useDispatch();
 
-  const { login, logout } = boundUserActions(dispatch);
+  const boundActionCreators = bindActionCreators({ login, logout }, dispatch);
 
-  const handleClick = () => (isLoggedIn ? logout() : login());
+  const handleClick = () =>
+    isLoggedIn ? boundActionCreators.logout() : boundActionCreators.login();
 
   return (
     <div>

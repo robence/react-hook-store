@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { useSelector, useDispatch } from '../../store2/hooks';
-import { boundCounterActions } from '../../store2/actions';
+import { useSelector, useDispatch } from '../../my-store/hooks';
+import { decrement, increment } from '../../my-store/actions';
+import { bindActionCreators } from '../../my-store/utils';
 
 import CounterInput from './CounterInput';
 import CounterOutput from './CounterOutput';
@@ -10,7 +11,7 @@ export default function CounterContainer() {
   const count = useSelector((state) => state.count);
   const dispatch = useDispatch();
 
-  const boundActionsCreators = boundCounterActions(dispatch);
+  const boundActionsCreators = bindActionCreators({ increment, decrement }, dispatch);
 
   return (
     <div>
